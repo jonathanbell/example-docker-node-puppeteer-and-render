@@ -1,0 +1,5 @@
+# Files and directories to be excluded from the build context (such as COPY
+# commands).
+node_modules
+README.md
+.env.example

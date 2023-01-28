@@ -1,0 +1,31 @@
+# version: '3.8'
+
+services:
+ app:
+  build:
+   context: .
+  ports:
+   - 3000:3000
+   - 9229:9229
+  environment:
+   - NODE_ENV=development
+   - SERVER_PORT=3000
+   - MARIADB_CONNECTIONSTRING=""
+  volumes:
+   - ./:/app
+   - /app/node_modules
+  command: npm run dev
+
+ maria:
+  image: mariadb:10.4
+  ports:
+   # port pattern is <host>:<container>
+   - 3309:3306
+  environment:
+   - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+  volumes:
+   - mariadb:/data/db
+   - mariadb_config:/data/configdb
+volumes:
+ mariadb:
+ mariadb_config:
