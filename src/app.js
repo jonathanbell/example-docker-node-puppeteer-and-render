@@ -33,7 +33,7 @@ app.get('/foo', async (req, res) => {
 
     await browser.close();
 
-    return res.send('im back bitch');
+    return res.send(lead_story);
   } catch (e) {
     return res.send('ERROR: ' + e);
   }
