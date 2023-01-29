@@ -25,11 +25,11 @@ app.get('/foo', async (req, res) => {
     });
 
     const page = await browser.newPage();
-    // await page.goto('https://jonathanbell.ca', {
-    //   waitUntil: 'load',
-    // });
+    await page.goto('https://jonathanbell.ca', {
+      waitUntil: 'load',
+    });
 
-    // const lead_story = await page.$eval('h1', (el) => el.innerText);
+    const lead_story = await page.$eval('h1', (el) => el.innerText);
 
     await browser.close();
 
